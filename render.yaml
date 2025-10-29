@@ -1,0 +1,62 @@
+# ==========================================================
+# 🧠 MANOVISHLESHAN - Render Deployment Config
+# Deploys: Frontend (React) + Backend (Node) + ML (Python)
+# ==========================================================
+
+services:
+  # =======================================
+  # BACKEND (Node.js + Express + Firebase)
+  # =======================================
+  - type: web
+    name: manovishleshan-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      # Add your Firebase / API keys here as env vars
+      # - key: FIREBASE_API_KEY
+      #   value: your_value_here
+      - key: ML_URL
+        fromService:
+          name: manovishleshan-ml
+          type: web
+          property: url
+
+  # =======================================
+  # ML SERVICE (Python + Flask)
+  # =======================================
+  - type: web
+    name: manovishleshan-ml
+    env: python
+    rootDir: ml
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: PORT
+        value: 5000
+
+  # =======================================
+  # FRONTEND (React)
+  # =======================================
+  - type: web
+    name: manovishleshan-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_BACKEND_URL
+        fromService:
+          name: manovishleshan-backend
+          type: web
+          property: url
+      - key: REACT_APP_ML_URL
+        fromService:
+          name: manovishleshan-ml
+          type: web
+          property: url
