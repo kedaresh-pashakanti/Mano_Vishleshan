@@ -10,7 +10,6 @@
 Users record their daily mental states over **15 days**, and our **Deep Learning model (IndicBERT)** analyzes the entries to predict potential signs of:
 
 - 🌀 Anxiety  
-- 😞 Depression  
 - ⚡ PTSD (Post-Traumatic Stress Disorder)
 
 Based on the prediction, the system also determines the **severity level** (Mild / Moderate / Severe).  
