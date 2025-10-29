@@ -1,0 +1,53 @@
+
+# ==========================================================
+# 🧠 MANOVISHLESHAN PROJECT - .gitignore
+# ==========================================================
+
+# Node modules (ignore everywhere)
+**/node_modules/
+
+# Python virtual environment
+myenv/
+venv/
+.env/
+__pycache__/
+
+# Model + weights (too large)
+*.pt
+*.pth
+*.onnx
+*.h5
+*.pkl
+*.safetensors
+
+# Firebase credentials
+firebase-key.json
+firebase_setup/
+
+# Saved entries, logs, etc.
+saved_entries/
+logs/
+
+# Build / dist / cache
+build/
+dist/
+.cache/
+.temp/
+
+# IDE and OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Compressed / binary files
+*.zip
+*.tar
+*.gz
+*.rar
+*.exe
+*.dll
+
+# Misc
+*.log
+
+.env
