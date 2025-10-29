@@ -1,6 +1,6 @@
 # ==========================================================
-# 🧠 MANOVISHLESHAN - Render Deployment Config
-# Deploys: Frontend (React) + Backend (Node) + ML (Python)
+# 🧠 MANOVISHLESHAN - Render Deployment Config (Fixed)
+# Compatible with Render's env linking rules
 # ==========================================================
 
 services:
@@ -18,14 +18,12 @@ services:
         value: production
       - key: PORT
         value: 10000
-      # Add your Firebase / API keys here as env vars
-      # - key: FIREBASE_API_KEY
-      #   value: your_value_here
+      # ⚠️ Add these manually later in Render Dashboard (not in YAML)
+      # - FIREBASE_API_KEY
+      # - FIREBASE_PROJECT_ID
+      # - etc.
       - key: ML_URL
-        fromService:
-          name: manovishleshan-ml
-          type: web
-          property: url
+        value: https://manovishleshan-ml.onrender.com
 
   # =======================================
   # ML SERVICE (Python + Flask)
@@ -51,12 +49,6 @@ services:
     staticPublishPath: build
     envVars:
       - key: REACT_APP_BACKEND_URL
-        fromService:
-          name: manovishleshan-backend
-          type: web
-          property: url
+        value: https://manovishleshan-backend.onrender.com
       - key: REACT_APP_ML_URL
-        fromService:
-          name: manovishleshan-ml
-          type: web
-          property: url
+        value: https://manovishleshan-ml.onrender.com
