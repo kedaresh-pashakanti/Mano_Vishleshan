@@ -190,7 +190,6 @@ pymongo==4.13.0
 PyMuPDF==1.24.13
 PyMySQL==1.1.0
 pyparsing==3.2.1
-pypiwin32==223
 pytest==8.3.5
 python-dateutil==2.9.0.post0
 python-docx==1.1.0
