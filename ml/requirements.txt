@@ -14,8 +14,8 @@ python-dotenv==1.0.1
 # ✅ ML + AI LIBRARIES
 # ================================
 torch==2.5.0
-transformers==4.44.2
-tokenizers==0.19.1
+transformers==4.37.2
+tokenizers==0.15.2
 huggingface-hub==0.25.2
 datasets==3.1.0
 accelerate==1.2.0
